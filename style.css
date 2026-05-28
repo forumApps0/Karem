@@ -25,6 +25,17 @@ body {
   overflow-x: hidden;
 }
 
+#progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--accent-1);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
 #app {
   max-width: 100vw;
 }
@@ -352,6 +363,97 @@ h2 {
   transform: scale(0.98);
 }
 
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.show {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.9)} 
+  to {transform: scale(1)}
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+  color: var(--accent-1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lightbox-prev, .lightbox-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.3s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background: rgba(0,0,0,0.3);
+  border: none;
+  z-index: 10001;
+}
+
+.lightbox-prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.lightbox-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+  background-color: rgba(0,0,0,0.8);
+  color: var(--accent-1);
+}
+
 /* Grid Layout */
 .grid-layout {
   display: grid;
@@ -441,13 +543,55 @@ h2 {
   margin-bottom: 2rem;
 }
 
+.carousel {
+  position: relative;
+  min-height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .quote-card {
   padding: 3rem;
   border-radius: 20px;
-  margin-bottom: 1.5rem;
-  position: relative;
+  position: absolute;
   text-align: center;
   background: white;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.quote-card.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  z-index: 2;
+  position: relative;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot.active {
+  background-color: var(--accent-1);
+  transform: scale(1.2);
 }
 
 .quote-mark {

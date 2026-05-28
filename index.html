@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Nuestra Historia en Datos - Ricardo y Karem" />
     <title>Ricardo & Karem - Nuestra Historia en WhatsApp</title>
+    <!-- Favicon & Open Graph -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content="Ricardo & Karem - Nuestra Historia" />
+    <meta property="og:description" content="Nuestra historia de amor en datos y estadísticas. ¡Descubre nuestro vínculo!" />
+    <meta property="og:image" content="/20ed5b45-15ea-44d6-bf99-18e134dbb1bc.jpg" />
+    <meta property="og:url" content="https://nuestrahistoria-rk.netlify.app/" />
+    <meta name="twitter:card" content="summary_large_image" />
     <!-- Romantic Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+    <div id="progress-bar"></div>
     <div id="app">
       <header class="hero">
         <div class="hero-content">
@@ -41,52 +49,52 @@
           <div class="insights-grid">
             <div class="insight-card glass-card">
               <div class="insight-icon">📅</div>
-              <h3>98</h3>
+              <h3 data-target="98">0</h3>
               <p>Días hablando sin parar</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">💌</div>
-              <h3>135</h3>
+              <h3 data-target="135">0</h3>
               <p>Mensajes al día en promedio</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">📸</div>
-              <h3>581</h3>
+              <h3 data-target="581">0</h3>
               <p>Fotos enviadas</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">🧸</div>
-              <h3>448</h3>
+              <h3 data-target="448">0</h3>
               <p>Stickers compartidos</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">🥰</div>
-              <h3>1,623</h3>
+              <h3 data-target="1623">0</h3>
               <p>Emojis de amor enviados</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">🎙️</div>
-              <h3>80</h3>
+              <h3 data-target="80">0</h3>
               <p>Notas de voz</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">🌙</div>
-              <h3>419</h3>
+              <h3 data-target="419">0</h3>
               <p>Mensajes de madrugada (¡Poco sueño!)</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">☀️</div>
-              <h3>193</h3>
+              <h3 data-target="193">0</h3>
               <p>Veces que se dijeron "Buenos días"</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">💋</div>
-              <h3>53</h3>
+              <h3 data-target="53">0</h3>
               <p>Besos mandados por chat</p>
             </div>
             <div class="insight-card glass-card">
               <div class="insight-icon">💪</div>
-              <h3>66</h3>
+              <h3 data-target="66">0</h3>
               <p>Veces hablando del Gym o el Volcán</p>
             </div>
           </div>
@@ -101,7 +109,7 @@
                 <img src="/RICARDO.jpg" alt="Ricardo" class="avatar" />
               </div>
               <h3 class="romantic-name">Ricardo</h3>
-              <p class="big-number">5,617</p>
+              <p class="big-number" data-target="5617">0</p>
               <p class="label">Mensajes</p>
               <div class="bar-container">
                 <div class="bar" style="width: 42%;"></div>
@@ -113,7 +121,7 @@
                 <img src="/KAREM.jpg" alt="Karem" class="avatar" />
               </div>
               <h3 class="romantic-name">Karem</h3>
-              <p class="big-number">7,649</p>
+              <p class="big-number" data-target="7649">0</p>
               <p class="label">Mensajes</p>
               <div class="bar-container">
                 <div class="bar" style="width: 58%;"></div>
@@ -127,15 +135,17 @@
         <section class="gallery-section fade-in">
           <h2>Nuestros Momentos 📸</h2>
           <div class="instagram-feed">
-            <img src="/050cffe0-b6b6-4681-8587-baed8ae13895.jpg" alt="Momento juntos" class="gallery-img">
-            <img src="/0a152baf-b40b-4866-826c-50cc7a817faa.jpg" alt="Momento juntos" class="gallery-img">
-            <img src="/20ed5b45-15ea-44d6-bf99-18e134dbb1bc.jpg" alt="Momento juntos" class="gallery-img">
-            <img src="/2dd41616-f4a5-453b-aaca-5f70c309663c.jpg" alt="Momento juntos" class="gallery-img">
-            <img src="/444c4571-da49-4553-a439-ed3396ef77b0.jpg" alt="Momento juntos" class="gallery-img">
-            <img src="/4a48eb3f-1393-48e4-8f71-d12edd562aba.jpg" alt="Momento juntos" class="gallery-img">
-            <img src="/4becc919-f3fd-472e-b16d-d5ade157d447.jpg" alt="Momento juntos" class="gallery-img">
-            <img src="/8da7134a-1971-406c-84eb-22bf5e7a72e4.jpg" alt="Momento juntos" class="gallery-img">
-            <img src="/9c0303c9-7e88-4914-b464-7117a714e58f.jpg" alt="Momento juntos" class="gallery-img">
+            <img src="/050cffe0-b6b6-4681-8587-baed8ae13895.jpg" alt="Un café para compartir" class="gallery-img">
+            <img src="/0a152baf-b40b-4866-826c-50cc7a817faa.jpg" alt="En el carro" class="gallery-img">
+            <img src="/20ed5b45-15ea-44d6-bf99-18e134dbb1bc.jpg" alt="Nuestro primer viaje juntos" class="gallery-img">
+            <img src="/444c4571-da49-4553-a439-ed3396ef77b0.jpg" alt="Cena romántica" class="gallery-img">
+            <img src="/4a48eb3f-1393-48e4-8f71-d12edd562aba.jpg" alt="Atardecer perfecto" class="gallery-img">
+            <img src="/4becc919-f3fd-472e-b16d-d5ade157d447.jpg" alt="Miradas cómplices" class="gallery-img">
+            <img src="/8da7134a-1971-406c-84eb-22bf5e7a72e4.jpg" alt="Selfie de domingo" class="gallery-img">
+            <img src="/9c0303c9-7e88-4914-b464-7117a714e58f.jpg" alt="El volcán al fondo" class="gallery-img">
+            <img src="/c876523b-0175-428d-b3a7-a11bc8078421.jpg" alt="Selfie casual" class="gallery-img">
+            <img src="/f80f9059-eb3d-44e1-bc9b-9efacdab0f88.jpg" alt="Postre favorito" class="gallery-img">
+            <img src="/fbe903f6-2a05-4241-8ff8-b5a66170fc26.jpg" alt="Siempre abrazados" class="gallery-img">
           </div>
         </section>
 
@@ -182,7 +192,7 @@
         <section class="quotes-section fade-in">
           <h2>Mensajes Inolvidables 💌</h2>
           <div class="carousel">
-            <div class="quote-card glass-card">
+            <div class="quote-card glass-card active">
               <span class="quote-mark">"</span>
               <p>Pero después de varias citas chéveres y vinos, te puedes animar a ir conmigo al volcán</p>
               <div class="quote-author">- Ricardo, coqueteando fuerte el día 1</div>
@@ -198,6 +208,11 @@
               <div class="quote-author">- Ricardo, siendo directo</div>
             </div>
           </div>
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
         </section>
 
         <section class="topics-section glass-card fade-in">
@@ -212,6 +227,14 @@
           </div>
         </section>
       </main>
+
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <button class="lightbox-prev">&lt;</button>
+        <img class="lightbox-content" id="lightbox-img" alt="Lightbox Image">
+        <button class="lightbox-next">&gt;</button>
+      </div>
 
       <footer>
         <p>Hecho con ❤️ de Ricardo para Karem</p>

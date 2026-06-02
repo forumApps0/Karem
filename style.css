@@ -126,20 +126,10 @@ h2 {
 
 .heart.beating {
   color: var(--heart-color);
-  font-size: 7rem;
+  font-size: 10rem;
   animation: heartbeat 1.5s infinite ease-in-out;
   text-shadow: 0 5px 15px rgba(164, 74, 91, 0.3);
   line-height: 1;
-}
-
-.heart-text {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-  margin-top: 1rem;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 @keyframes heartbeat {
@@ -154,6 +144,26 @@ h2 {
 .highlight {
   color: var(--accent-1);
   font-weight: 800;
+  font-size: 1.2em;
+}
+
+.live-counter {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  animation: fadeUp 1s ease 0.7s both;
+  color: var(--text-primary);
+}
+
+.live-counter span {
+  font-weight: 800;
+  color: var(--heart-color);
   font-size: 1.2em;
 }
 
@@ -265,16 +275,22 @@ h2 {
 .split-stats {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 2rem;
-  flex-wrap: wrap;
   gap: 2rem;
 }
 
 .person-stat {
   flex: 1;
-  min-width: 250px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .avatar-wrapper {
@@ -327,8 +343,9 @@ h2 {
 .fun-fact {
   margin-top: 1.5rem;
   font-style: italic;
-  color: var(--heart-color);
-  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .vs {

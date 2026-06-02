@@ -226,15 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => heart.remove(), 1000);
   };
   
-  window.addEventListener('mousemove', (e) => {
+  window.addEventListener('pointermove', (e) => {
     createTrailHeart(e.pageX, e.pageY);
   });
-  
-  window.addEventListener('touchmove', (e) => {
-    if(e.touches.length > 0) {
-      createTrailHeart(e.touches[0].pageX, e.touches[0].pageY);
-    }
-  }, {passive: true});
 
   // --- 8. Avatar Heart Pop Interactive ---
   const avatars = document.querySelectorAll('.avatar');
@@ -265,4 +259,31 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => pop.remove(), 1000);
     });
   });
+
+  // --- 9. Live Counter ---
+  const daysEl = document.getElementById('time-days');
+  const hoursEl = document.getElementById('time-hours');
+  const minsEl = document.getElementById('time-minutes');
+  
+  if (daysEl && hoursEl && minsEl) {
+    const updateLiveCounter = () => {
+      // February 20, 2026 13:46:00
+      const startDate = new Date('2026-02-20T13:46:00').getTime();
+      const now = new Date().getTime();
+      const diff = now - startDate;
+      
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        
+        daysEl.innerText = days;
+        hoursEl.innerText = hours;
+        minsEl.innerText = mins;
+      }
+    };
+    
+    updateLiveCounter();
+    setInterval(updateLiveCounter, 60000); // Update every minute
+  }
 });

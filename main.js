@@ -189,7 +189,22 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Sweet alert after a small delay
       setTimeout(() => {
-        alert("¡Alerta de exceso de amor! Ricardo te quiere muchísimo, Karem. ❤️");
+        const modal = document.getElementById('romantic-modal');
+        if (modal) {
+          modal.classList.add('show');
+          
+          const closeBtn = modal.querySelector('.close-modal');
+          const acceptBtn = modal.querySelector('.modal-btn');
+          
+          const closeModal = () => modal.classList.remove('show');
+          
+          if (closeBtn) closeBtn.onclick = closeModal;
+          if (acceptBtn) acceptBtn.onclick = closeModal;
+          
+          modal.onclick = (e) => {
+            if (e.target === modal) closeModal();
+          };
+        }
       }, 1500);
     });
   }

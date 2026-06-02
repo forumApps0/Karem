@@ -31,8 +31,24 @@
             <span>Karem</span>
           </div>
           <p class="date">Escribiendo nuestra historia desde el 20 de Febrero de 2026</p>
-          <div class="live-counter">
-            <p>Han pasado <span id="time-days">0</span> días, <span id="time-hours">0</span> horas y <span id="time-minutes">0</span> minutos desde nuestro primer mensaje ⏲️</p>
+          <div class="modern-timer-container">
+            <div class="modern-timer">
+              <div class="time-box">
+                <span id="time-days" class="time-val">0</span>
+                <span class="time-label">Días</span>
+              </div>
+              <span class="time-sep">:</span>
+              <div class="time-box">
+                <span id="time-hours" class="time-val">0</span>
+                <span class="time-label">Horas</span>
+              </div>
+              <span class="time-sep">:</span>
+              <div class="time-box">
+                <span id="time-minutes" class="time-val">0</span>
+                <span class="time-label">Min</span>
+              </div>
+            </div>
+            <p class="timer-text">Desde nuestro primer mensaje ❤️</p>
           </div>
           <button id="scroll-btn" class="scroll-down">Descubre nuestros datos ↓</button>
         </div>
@@ -50,8 +66,8 @@
           <h2>Nuestro Vínculo en Números ✨</h2>
           <div class="insights-grid">
             <div class="insight-card glass-card">
-              <div class="insight-icon">📅</div>
-              <h3 data-target="98">0</h3>
+              <div class="insight-icon">🔥</div>
+              <h3 id="days-talking-stat" data-target="102">0</h3>
               <p>Días hablando sin parar</p>
             </div>
             <div class="insight-card glass-card">

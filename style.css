@@ -147,24 +147,62 @@ h2 {
   font-size: 1.2em;
 }
 
-.live-counter {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 10px 20px;
-  border-radius: 20px;
-  display: inline-block;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+.modern-timer-container {
+  margin: 2rem 0 3rem;
   animation: fadeUp 1s ease 0.7s both;
-  color: var(--text-primary);
 }
 
-.live-counter span {
+.modern-timer {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(164, 74, 91, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.time-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.time-val {
+  font-family: 'Outfit', sans-serif;
   font-weight: 800;
+  font-size: 2.2rem;
   color: var(--heart-color);
-  font-size: 1.2em;
+  line-height: 1;
+}
+
+.time-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+.time-sep {
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgba(164, 74, 91, 0.4);
+  margin: 0 15px;
+  margin-top: -15px;
+  animation: pulse 1.5s infinite;
+}
+
+.timer-text {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: white;
+  font-style: italic;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .scroll-down {
@@ -531,27 +569,76 @@ h2 {
   z-index: 1;
 }
 
-.right {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), 0 5px 15px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.timeline-item.right {
   left: 50%;
 }
 
-.right::after {
-  left: -10px;
+.timeline-item.right::after {
+  left: -20px;
 }
 
 .timeline-date {
   font-weight: 800;
   color: var(--accent-2);
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .timeline-content {
-  padding: 1.5rem;
-  background: white;
-  border-radius: 16px;
-  border-left: 4px solid var(--accent-1);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 25px;
+  right: -15px;
+  border-width: 15px 0 15px 15px;
+  border-style: solid;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.9);
+}
+
+.timeline-item.right .timeline-content::before {
+  left: -15px;
+  border-width: 15px 15px 15px 0;
+  border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
+}
+
+.timeline-item:hover .timeline-content {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(164, 74, 91, 0.1);
+}
+
+.timeline-content h4 {
+  color: var(--heart-color);
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.timeline-content p {
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.polaroid-wrapper {
+  margin: 1.5rem 0;
 }
 
 /* Quotes */
@@ -789,26 +876,31 @@ footer::before {
     gap: 2px;
   }
   
-  .timeline::after {
-    left: 20px;
+  /* Timeline Responsiveness */
+  .timeline-container::after {
+    left: 40px;
   }
   
   .timeline-item {
     width: 100%;
-    padding-left: 55px;
-    padding-right: 15px;
+    padding-left: 90px;
+    padding-right: 20px;
   }
   
-  .timeline-item::after {
-    left: 10px;
+  .timeline-item.right {
+    left: 0;
   }
   
-  .right {
-    left: 0%;
+  .timeline-item::after, .timeline-item.right::after {
+    left: 20px;
+    right: auto;
   }
-
-  .right::after {
-    left: 10px;
+  
+  .timeline-content::before, .timeline-item.right .timeline-content::before {
+    left: -15px;
+    right: auto;
+    border-width: 15px 15px 15px 0;
+    border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;
   }
 
   .quote-card {

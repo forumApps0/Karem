@@ -437,9 +437,12 @@ h2 {
   transition: all 0.3s ease;
   pointer-events: none;
   font-family: 'Outfit', sans-serif;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-size: 3rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
 .gallery-item:hover .gallery-overlay {

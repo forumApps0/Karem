@@ -158,7 +158,39 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (!lightbox.classList.contains('show')) return;
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowLeft') showPrevImage();
     if (e.key === 'ArrowRight') showNextImage();
   });
+
+  // --- 6. Romantic Emergency Button ---
+  const loveBtn = document.getElementById('love-btn');
+  const heartsContainer = document.getElementById('hearts-container');
+  
+  if (loveBtn && heartsContainer) {
+    loveBtn.addEventListener('click', () => {
+      // Create 30 hearts
+      for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.classList.add('floating-heart');
+          heart.innerHTML = ['❤️', '💖', '🥰', '🍷', '✨'][Math.floor(Math.random() * 5)];
+          
+          // Randomize position and animation duration
+          heart.style.left = Math.random() * 100 + 'vw';
+          heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+          
+          heartsContainer.appendChild(heart);
+          
+          // Remove heart after animation
+          setTimeout(() => {
+            heart.remove();
+          }, 5000);
+        }, i * 100);
+      }
+      
+      // Sweet alert after a small delay
+      setTimeout(() => {
+        alert("¡Alerta de exceso de amor! Ricardo te quiere muchísimo, Karem. ❤️");
+      }, 1500);
+    });
+  }
 });

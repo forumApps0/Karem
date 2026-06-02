@@ -208,4 +208,61 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1500);
     });
   }
+  
+  // --- 7. Mouse/Touch Trail Hearts ---
+  let lastHeartTime = 0;
+  const createTrailHeart = (x, y) => {
+    const now = Date.now();
+    if (now - lastHeartTime < 70) return; // limit frequency to avoid lag
+    lastHeartTime = now;
+    
+    const heart = document.createElement('div');
+    heart.classList.add('trail-heart');
+    heart.innerHTML = ['❤️', '💖', '✨', '💕', '🥰'][Math.floor(Math.random() * 5)];
+    heart.style.left = (x - 10) + 'px';
+    heart.style.top = (y - 10) + 'px';
+    
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 1000);
+  };
+  
+  window.addEventListener('mousemove', (e) => {
+    createTrailHeart(e.pageX, e.pageY);
+  });
+  
+  window.addEventListener('touchmove', (e) => {
+    if(e.touches.length > 0) {
+      createTrailHeart(e.touches[0].pageX, e.touches[0].pageY);
+    }
+  }, {passive: true});
+
+  // --- 8. Avatar Heart Pop Interactive ---
+  const avatars = document.querySelectorAll('.avatar');
+  avatars.forEach(avatar => {
+    avatar.addEventListener('click', (e) => {
+      const pop = document.createElement('div');
+      pop.classList.add('pop-heart');
+      pop.innerHTML = ['😍', '❤️', '💋', '🍷'][Math.floor(Math.random() * 4)];
+      
+      const rect = avatar.getBoundingClientRect();
+      const x = rect.left + rect.width / 2 + window.scrollX;
+      const y = rect.top + rect.height / 2 + window.scrollY;
+      
+      pop.style.left = x + 'px';
+      pop.style.top = y + 'px';
+      
+      document.body.appendChild(pop);
+      
+      // Make avatar bounce dynamically
+      avatar.style.transform = 'scale(0.8)';
+      setTimeout(() => {
+        avatar.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+          avatar.style.transform = '';
+        }, 200);
+      }, 100);
+      
+      setTimeout(() => pop.remove(), 1000);
+    });
+  });
 });
